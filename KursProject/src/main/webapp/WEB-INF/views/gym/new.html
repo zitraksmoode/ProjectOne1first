@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New sport area</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/gym}" th:object="${gym}">
+    <label for="gym_name">Введите название спортазала: </label>
+    <input type="text" th:field="*{gym_name}" id="gym_name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('gym_name')}" th:errors="*{gym_name}">gym_name Error</div>
+    <br/>
+    <label for="equipment">Введите снаряжение : </label>
+    <input type="text" th:field="*{equipment}" id="equipment"/>
+    <div style="color:red" th:if="${#fields.hasErrors('equipment')}" th:errors="*{equipment}">equipment Error</div>
+    <br/>
+    <input type="submit" value="Создать!"/>
+</form>
+
+</body>
+</html>
